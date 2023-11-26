@@ -1,5 +1,5 @@
 import * as request from '../lib/request';
-import { USERS_BASE_URL } from '../utils/constants';
+import { USERS_BASE_URL } from '../utils/routeConstants';
 
 export const login = async (email, password) => {
     const result = await request.post(`${USERS_BASE_URL}/login`, {

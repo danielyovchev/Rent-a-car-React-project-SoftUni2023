@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import {Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import {PATHS} from './utils/routeConstants'
+import { PATHS } from './utils/routeConstants'
 import Home from './components/Home/Home'
 import About from './components/About/About'
 import Cars from './components/Cars/Cars'
 import Contacts from './components/Contacts/Contacts'
+import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
 	return (
@@ -17,19 +18,22 @@ function App() {
 		// 	<Footer />
 		// </div>
 		<Router>
-			<Header />
-			<>
-			<Routes>
-				<Route path={PATHS.HOME} element={<Home/>} />
-				<Route path={PATHS.ABOUT} element={<About/>} />
-				<Route path={PATHS.CARS} element={<Cars/>} />
-				<Route path={PATHS.CONTACTS} element={<Contacts/>} />
-			</Routes>
-			</>
-			
-			<Footer />
+			<AuthProvider>
+				<Header />
+				<>
+					<Routes>
+						<Route path={PATHS.HOME} element={<Home />} />
+						<Route path={PATHS.ABOUT} element={<About />} />
+						<Route path={PATHS.CARS} element={<Cars />} />
+						<Route path={PATHS.CONTACTS} element={<Contacts />} />
+					</Routes>
+				</>
+
+				<Footer />
+			</AuthProvider>
+
 		</Router>
-	  )
+	)
 }
 
 export default App
