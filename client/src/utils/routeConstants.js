@@ -7,3 +7,6 @@ export const PATHS = {
     ABOUT: '/about',
     CONTACTS: '/contacts'
 };
+
+export const API_BASE_URL = "http://localhost:3030/data";
+export const USERS_BASE_URL = "http://localhost:3030/users";

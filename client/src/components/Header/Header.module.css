@@ -1,6 +1,8 @@
-.logInButton {}
+.logInButton:hover {
+	color: red;
+}
 
 .logo {
-	height: 80px;
-	width: 100px;
+	height: 60px;
+	width: 80px;
 }
