@@ -5,8 +5,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/images/logo.png';
+import { useContext } from "react";
+import AuthContext from "../../contexts/AuthContext";
 
 export default function Header() {
+	const {isAuthenticated,username} = useContext(AuthContext);
 	return (
 		<Navbar expand="lg" className="bg-body-tertiary">
 			<Container>
@@ -21,8 +24,11 @@ export default function Header() {
 					</Nav>
 				</Navbar.Collapse>
 				<Nav className={styles.logInButton}>
-					<Nav.Link as={Link} to={PATHS.LOGIN}>Log In</Nav.Link>
-					<Nav.Link as={Link} to={PATHS.LOGOUT}>Logout</Nav.Link>
+					<label>{username}</label>
+					{!isAuthenticated ? 
+					(<Nav.Link as={Link} to={PATHS.LOGIN}>Log In</Nav.Link>) : 
+					(<Nav.Link as={Link} to={PATHS.LOGOUT}>Logout</Nav.Link>)
+					}
 				</Nav>
 			</Container>
 		</Navbar>
