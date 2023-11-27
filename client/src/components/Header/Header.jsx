@@ -22,6 +22,7 @@ export default function Header() {
 				</Navbar.Collapse>
 				<Nav className={styles.logInButton}>
 					<Nav.Link as={Link} to={PATHS.LOGIN}>Log In</Nav.Link>
+					<Nav.Link as={Link} to={PATHS.LOGOUT}>Logout</Nav.Link>
 				</Nav>
 			</Container>
 		</Navbar>

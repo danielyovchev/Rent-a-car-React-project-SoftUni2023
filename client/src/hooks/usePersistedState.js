@@ -12,6 +12,7 @@ export default function usePersistedState(key, defaultValue) {
     });
 
     const setPersistedState = (value) => {
+        console.log(value);
         setState(value);
 
         let serializedValue;
