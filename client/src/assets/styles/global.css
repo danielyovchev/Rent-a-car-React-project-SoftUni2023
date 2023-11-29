@@ -1,3 +1,19 @@
-body{
+body {
     margin: 0;
+}
+
+.carousel-indicators {
+    margin-bottom: 0;
+}
+
+.carousel-indicators .active {
+    background-color: black;
+    /* e.g., red, #ff0000, etc. */
+}
+
+/* Inactive indicator color */
+.carousel-indicators [data-bs-target] {
+    background-color: red;
+    /* e.g., gray, #ccc, etc. */
+
 }
