@@ -1339,6 +1339,28 @@
     	}
     };
     var seedData = {
+        cars: {
+            "9bf31c7f-0623-4c4a-ae95-c5ed837b07ac": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _id: "9bf31c7f-0623-4c4a-ae95-c5ed837b07ac",
+                model: "Ford Focus",
+                year: "2023",
+                type: "hatchback",
+                description: "Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together to save the universe.",
+                imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/420px-2018_Ford_Focus_ST-Line_X_1.0.jpg",
+                price: 120.50
+            },
+            "9bf31c7f-0623-4c4a-ae95-c5ed837b07az": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _id: "9bf31c7f-0623-4c4a-ae95-c5ed837b07az",
+                model: "BMW 3-series",
+                year: "2022",
+                type: "sedan",
+                description: "Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together to save the universe.",
+                imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/420px-2018_Ford_Focus_ST-Line_X_1.0.jpg",
+                price: 120.50
+            }
+        },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
