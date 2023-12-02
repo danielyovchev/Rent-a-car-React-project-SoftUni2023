@@ -1346,6 +1346,9 @@
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _id: "9bf31c7f-0623-4c4a-ae95-c5ed837b07ac",
                 model: "Ford Focus",
+                transmission: "manual",
+                capacity: 5,
+                bags: 2,
                 year: "2023",
                 type: "hatchback",
                 description: "Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together to save the universe.",
@@ -1354,13 +1357,16 @@
             },
             "9bf31c7f-0623-4c4a-ae95-c5ed837b07az": {
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                _id: "9bf31c7f-0623-4c4a-ae95-c5ed837b07az",
-                model: "BMW 3-series",
-                year: "2022",
+                _id: "9bf31c7f-0623-4c4a-ae95-c5ed837b07ac",
+                model: "Ford Mondeo",
+                transmission: "automatic",
+                capacity: 5,
+                bags: 3,
+                year: "2023",
                 type: "sedan",
                 description: "Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together to save the universe.",
                 imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/420px-2018_Ford_Focus_ST-Line_X_1.0.jpg",
-                price: 120.50
+                price: 220.50
             }
         },
     	recipes: {

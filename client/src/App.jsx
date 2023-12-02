@@ -11,6 +11,7 @@ import Cars from './components/Cars/Cars'
 import Contacts from './components/Contacts/Contacts'
 import Login from './components/Login/Login'
 import Logout from './components/Logout/Logout'
+import BookingPage from './components/BookingPage/BookingPage'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 						<Route path={PATHS.CONTACTS} element={<Contacts />} />
 						<Route path={PATHS.LOGIN} element={<Login />} />
 						<Route path={PATHS.LOGOUT} element={<Logout />} />
+						<Route path={PATHS.BOOK} element={<BookingPage />} />
 					</Routes>
 				</>
 				<Footer />

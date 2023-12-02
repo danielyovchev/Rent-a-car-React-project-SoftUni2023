@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Form, Button, Container, Row, Col, ToggleButton, ToggleButtonGroup, InputGroup, FormControl } from 'react-bootstrap';
 import { GeoAltFill } from 'react-bootstrap-icons';
@@ -16,11 +17,20 @@ function CarRentalSearchForm() {
     const [pickUpTime, setPickUpTime] = useState('');
     const [returnTime, setReturnTime] = useState('');
     const [returnDate, setReturnDate] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(getAllFreeCars(pickUpDate));
-        navigate(PATHS.BOOK);
+        const formData = {
+            vehicleType,
+            pickupLocation,
+            returnLocation: showReturnLocation ? returnLocation : pickupLocation,
+            pickUpDate,
+            pickUpTime,
+            returnDate,
+            returnTime
+        };
+        navigate(PATHS.BOOK, { state: {formData}});
     }
 
     return (
