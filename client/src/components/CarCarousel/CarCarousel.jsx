@@ -14,15 +14,24 @@ export default function CarCarousel() {
 
     useEffect(() => {
         carService.getAll()
-        .then(result => setCars(result))
-        .catch(err => console.log(err))
-    },[]);
+            .then(result => setCars(result))
+            .catch(err => console.log(err))
+    }, []);
     console.log(cars);
     return (
         <Carousel className={styles.carousel} activeIndex={index} onSelect={handleSelect}>
-            {cars.map(car => 
-            (<CarCarouselCard key={car._id} car={{...car}}/>))
-            }
+            {cars.map(car =>
+                <Carousel.Item>
+                    <Card>
+                        <Card.Img variant="top" src={car.imgUrl} />
+                        <Card.Body>
+                            <Card.Title>{car.model}</Card.Title>
+                            <Card.Text>{car.type}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Carousel.Item>
+                //(<CarCarouselCard key={car._id} car={{...car}}/>)
+            )}
         </Carousel>
     );
 }

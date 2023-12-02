@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { Form, Button, Container, Row, Col, ToggleButton, ToggleButtonGroup, InputGroup, FormControl } from 'react-bootstrap';
 import { GeoAltFill } from 'react-bootstrap-icons';
 
-import styles from "./BookingForm.module.css";
+import  getAllFreeCars, * as carService from '../../services/carService'
+import styles from "./SearchForm.module.css";
+import { PATHS } from '../../utils/routeConstants';
 
 function CarRentalSearchForm() {
-    // Define state for form fields
-    // In a real-world app, you'd also handle form submission and validation
     const [vehicleType, setVehicleType] = useState('cars');
     const [pickupLocation, setPickupLocation] = useState('');
     const [returnLocation, setReturnLocation] = useState('');
@@ -17,9 +17,15 @@ function CarRentalSearchForm() {
     const [returnTime, setReturnTime] = useState('');
     const [returnDate, setReturnDate] = useState('');
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(getAllFreeCars(pickUpDate));
+        navigate(PATHS.BOOK);
+    }
+
     return (
         <Container className={styles.formBack}>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Row className="mb-3">
                     <Col>
                         <ToggleButtonGroup type="radio" name="vehicleType" value={vehicleType} onChange={setVehicleType}>
@@ -102,7 +108,7 @@ function CarRentalSearchForm() {
                         />
                     </Col>
                 </Row>
-                <Button variant="success" size="lg">
+                <Button variant="success" size="lg" type="submit">
                     Show cars
                 </Button>
             </Form>

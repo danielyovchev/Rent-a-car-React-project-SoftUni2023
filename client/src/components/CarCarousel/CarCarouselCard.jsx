@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel, Card } from 'react-bootstrap';
 
-export default function CarCarouselCard({ car }) {
+export default function CarCarouselCard({ ...car }) {
     return (
         <div>
             <Carousel.Item>
