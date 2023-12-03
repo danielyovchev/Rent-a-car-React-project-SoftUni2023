@@ -16,5 +16,8 @@ export const getAllForPeriod = async (startDate) => {
     } catch (error) {
         return [];
     }
+}
 
+export const createBooking = async (data) => {
+    await request.post(baseUrl, data);
 }
