@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { PATHS } from "../../utils/routeConstants";
 import * as bookingService from "../../services/bookingService";
 import { toast } from "react-toastify";
+import { daysDiffCalculate } from "../../utils/dateUtil";
 
 export default function BookingPage() {
     const [cars, setCars] = useState([]);
@@ -29,9 +30,7 @@ export default function BookingPage() {
 
     const handleBooking = async () => {
         try {
-            const dayR = new Date(formData.returnDate);
-            const dayS = new Date(formData.pickUpDate);
-            let days = (dayR - dayS)/(1000*3600*24);
+            const days = daysDiffCalculate(formData.returnDate, formData.pickUpDate);
             let car = cars.find(car => car._id === carId);
             let totalPrice = days * car.price;
             const bookingData = {
