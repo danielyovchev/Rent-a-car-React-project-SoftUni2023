@@ -21,7 +21,7 @@ export default function CarCarousel() {
     return (
         <Carousel className={styles.carousel} activeIndex={index} onSelect={handleSelect}>
             {cars.map(car =>
-                <Carousel.Item>
+                <Carousel.Item key={car._id}>
                     <Card>
                         <Card.Img variant="top" src={car.imgUrl} />
                         <Card.Body>

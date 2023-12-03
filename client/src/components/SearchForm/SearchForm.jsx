@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button, Container, Row, Col, ToggleButton, ToggleButtonGroup, InputGroup, FormControl } from 'react-bootstrap';
 import { GeoAltFill } from 'react-bootstrap-icons';
@@ -6,15 +6,27 @@ import styles from "./SearchForm.module.css";
 import { PATHS } from '../../utils/routeConstants';
 
 function CarRentalSearchForm() {
+
+    const getTodayDate = () => {
+        const today = new Date();
+        return today.toISOString().split('T')[0];
+    };
+
+    // Define default values for date and time
+    const defaultPickUpDate = getTodayDate();
+    const defaultPickUpTime = '09:00';
+    const defaultReturnDate = getTodayDate();
+    const defaultReturnTime = '17:00';
+
     // State for form fields
     const [vehicleType, setVehicleType] = useState('cars');
     const [pickupLocation, setPickupLocation] = useState('');
     const [returnLocation, setReturnLocation] = useState('');
     const [showReturnLocation, setShowReturnLocation] = useState(false);
-    const [pickUpDate, setPickUpDate] = useState('');
-    const [pickUpTime, setPickUpTime] = useState('');
-    const [returnTime, setReturnTime] = useState('');
-    const [returnDate, setReturnDate] = useState('');
+    const [pickUpDate, setPickUpDate] = useState(defaultPickUpDate);
+    const [pickUpTime, setPickUpTime] = useState(defaultPickUpTime);
+    const [returnTime, setReturnTime] = useState(defaultReturnTime);
+    const [returnDate, setReturnDate] = useState(defaultReturnDate);
     const [validated, setValidated] = useState(false);
 
     // State for validation flags
@@ -59,9 +71,23 @@ function CarRentalSearchForm() {
                 returnDate,
                 returnTime
             };
+            localStorage.setItem('carRentalFormData', JSON.stringify(formData));
             navigate(PATHS.BOOK, { state: { formData } });
         }
     }
+
+    useEffect(() => {
+        const savedFormData = JSON.parse(localStorage.getItem('carRentalFormData'));
+        if (savedFormData) {
+            setVehicleType(savedFormData.vehicleType);
+            setPickupLocation(savedFormData.pickupLocation);
+            setReturnLocation(savedFormData.returnLocation);
+            setPickUpDate(savedFormData.pickUpDate);
+            setPickUpTime(savedFormData.pickUpTime);
+            setReturnDate(savedFormData.returnDate);
+            setReturnTime(savedFormData.returnTime);
+        }
+    }, []);
 
     return (
         <Container className={styles.formBack}>
@@ -170,7 +196,6 @@ function CarRentalSearchForm() {
                     </Col>
                 </Row>
 
-                {/* Submit Button */}
                 <Button variant="success" size="lg" type="submit">
                     Show cars
                 </Button>
