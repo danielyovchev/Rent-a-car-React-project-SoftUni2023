@@ -1,6 +1,9 @@
 import styles from "./BookingCard.module.css";
 
-export default function BookingCard({ booking }) {
+export default function BookingCard({ booking, onCancel }) {
+    const handleCancelClick = () => {
+        onCancel(booking._id);
+    }
     return (
         <div className={styles.bookingCard}>
             <h3>{booking.car.model}</h3>
@@ -20,10 +23,8 @@ export default function BookingCard({ booking }) {
                 <div className="info-column">
                     <p>Price: {booking.totalPrice}</p>
                 </div>
-
-                <button>Modify</button>
-                <button>Cancel</button>
-
+                <button>Review</button>
+                <button onClick={handleCancelClick}>Cancel</button>
             </div>
         </div>
     );

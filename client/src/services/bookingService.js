@@ -31,3 +31,7 @@ export const getAllForUser = async (userId) => {
 export const createBooking = async (data) => {
     await request.post(baseUrl, data);
 }
+
+export const cancelBooking = async (bookingId) => {
+    await request.remove(`${baseUrl}/${bookingId}`);
+}
