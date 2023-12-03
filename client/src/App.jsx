@@ -14,6 +14,7 @@ import Logout from './components/Logout/Logout'
 import BookingPage from './components/BookingPage/BookingPage'
 import MyBookings from './components/MyBookings/MyBookings'
 import Register from './components/Register/Register'
+import { ToastContainer } from 'react-toastify'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 		<Router>
 			<AuthProvider>
 				<Header />
+				<ToastContainer />
 				<>
 					<Routes>
 						<Route path={PATHS.HOME} element={<Home />} />
