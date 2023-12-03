@@ -5,6 +5,7 @@ import getAllFreeCars from "../../services/carService";
 import { useEffect, useState } from "react";
 import { PATHS } from "../../utils/routeConstants";
 import * as bookingService from "../../services/bookingService";
+import { toast } from "react-toastify";
 
 export default function BookingPage() {
     const [cars, setCars] = useState([]);
@@ -21,9 +22,9 @@ export default function BookingPage() {
     }, []);
     console.log(cars);
 
-    function handleCarSelect(carId){
+    function handleCarSelect(carId) {
+        console.log(carId);
         setCarId(carId);
-        handleBooking();
     }
 
     const handleBooking = async () => {
@@ -39,17 +40,23 @@ export default function BookingPage() {
                 returnTime: formData.returnTime,
             }
             await bookingService.createBooking(bookingData);
-            console.log("Success");
+            toast.success("Your booking was made.");
         } catch (error) {
-            console.log(error.message);
+            toast.error(error.message);
         }
-        navigate(PATHS.HOME);
+        navigate(PATHS.MYBOOKINGS);
     }
+
+    useEffect(() => {
+        if(carId){
+            handleBooking();
+        }
+    }, [carId]);
 
     return (
         <>
-        <CarRentalSearchForm />
-        {cars.map(car => <CarCard car={car} onSelect={handleCarSelect} onClick={handleBooking} />)}
+            <CarRentalSearchForm />
+            {cars.map(car => <CarCard key={car._id} car={car} onSelect={handleCarSelect} />)}
         </>
     );
 }

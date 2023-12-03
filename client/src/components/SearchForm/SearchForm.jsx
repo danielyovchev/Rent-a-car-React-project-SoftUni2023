@@ -53,6 +53,7 @@ function CarRentalSearchForm() {
             isValid = false;
         }
 
+
         return isValid;
     };
 

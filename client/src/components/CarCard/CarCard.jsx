@@ -1,7 +1,6 @@
 import style from './CarCard.module.css'
 
 export default function CarCard({ car, onSelect }) {
-    console.log(car);
     return (
         <div className={style.carCard}>
             <div className={style.carImage}>

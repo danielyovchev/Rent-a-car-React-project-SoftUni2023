@@ -19,6 +19,5 @@ export default function MyBookings() {
                 <BookingCard key={booking._id} booking={booking}/>
             ))}
         </>
-
     );
 }
