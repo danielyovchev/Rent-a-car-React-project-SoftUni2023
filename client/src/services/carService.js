@@ -9,27 +9,24 @@ export const getAll = async () => {
     return result;
 }
 
-export default async function getAllFreeCars(startDate) {
+export default async function getAllFreeCars(startDate, endDate) {
     try {
-        // Get all bookings for the period
         const bookingsData = await bookingService.getAll();
 
         let bookedCarIds = [];
         if (Array.isArray(bookingsData)) {
             bookedCarIds = bookingsData
-            .filter(booking => booking.startDate >= startDate)
+            .filter(booking => !(booking.pickUpDate > endDate || booking.returnDate < startDate))
             .map(booking => booking.carId);
         }
 
-        // Get all cars
         const allCars = await getAll();
         
-        // Filter out booked cars
         const freeCars = allCars.filter(car => !bookedCarIds.includes(car._id));
         return freeCars;
 
     } catch (error) {
         console.error('Error processing data:', error);
-        return []; // Return an empty array in case of error.
+        return [];
     }
 }

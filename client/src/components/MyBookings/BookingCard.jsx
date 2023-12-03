@@ -18,7 +18,7 @@ export default function BookingCard({ booking }) {
                     <p>Return location: {booking.returnLocation}</p>
                 </div>
                 <div className="info-column">
-
+                    <p>Price: {booking.totalPrice}</p>
                 </div>
 
                 <button>Modify</button>

@@ -16,7 +16,7 @@ export default function BookingPage() {
     console.log(formData);
 
     useEffect(() => {
-        getAllFreeCars(formData.pickUpDate)
+        getAllFreeCars(formData.pickUpDate, formData.returnDate)
             .then(result => setCars(result))
             .catch(err => console.log(err));
     }, []);
@@ -29,6 +29,11 @@ export default function BookingPage() {
 
     const handleBooking = async () => {
         try {
+            const dayR = new Date(formData.returnDate);
+            const dayS = new Date(formData.pickUpDate);
+            let days = (dayR - dayS)/(1000*3600*24);
+            let car = cars.find(car => car._id === carId);
+            let totalPrice = days * car.price;
             const bookingData = {
                 carId: carId,
                 vehicleType: formData.vehicleType,
@@ -38,11 +43,13 @@ export default function BookingPage() {
                 pickUpTime: formData.pickUpTime,
                 returnDate: formData.returnDate,
                 returnTime: formData.returnTime,
+                totalPrice: totalPrice
             }
             await bookingService.createBooking(bookingData);
             toast.success("Your booking was made.");
         } catch (error) {
             toast.error(error.message);
+            return;
         }
         navigate(PATHS.MYBOOKINGS);
     }
