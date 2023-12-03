@@ -2,6 +2,8 @@ import { useContext, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import AuthContext from '../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
+import { PATHS } from '../../utils/routeConstants';
 
 export default function Login() {
     const { loginSubmitHandler} = useContext(AuthContext);
@@ -19,8 +21,8 @@ export default function Login() {
             style={{ display: 'block', position: 'initial' }}
         >
             <Modal.Dialog>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
+                <Modal.Header>
+                    <Modal.Title>Login to your account or create a new account</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
@@ -42,13 +44,12 @@ export default function Login() {
                             />
                         </div>
                         <button type="submit">Login</button>
+                        <div>
+                            New user?
+                            <Link to={PATHS.REGISTER}>Register</Link>
+                        </div>
                     </form>
                 </Modal.Body>
-
-                <Modal.Footer>
-                    <Button variant="secondary">Close</Button>
-                    <Button variant="primary">Save changes</Button>
-                </Modal.Footer>
             </Modal.Dialog>
         </div>
     );

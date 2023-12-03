@@ -6,7 +6,8 @@ export const PATHS = {
     BOOK: '/book',
     ABOUT: '/about',
     CONTACTS: '/contacts',
-    LOGOUT: '/logout'
+    LOGOUT: '/logout',
+    MYBOOKINGS: '/myBookings'
 };
 
 export const API_BASE_URL = "http://localhost:3030/data";

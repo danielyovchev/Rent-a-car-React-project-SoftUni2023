@@ -1,0 +1,28 @@
+.bookingCard {
+    width: 50%;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.carImage {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.reservationDetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.carImageContainer {
+    flex-basis: 30%;
+}

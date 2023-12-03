@@ -12,6 +12,8 @@ import Contacts from './components/Contacts/Contacts'
 import Login from './components/Login/Login'
 import Logout from './components/Logout/Logout'
 import BookingPage from './components/BookingPage/BookingPage'
+import MyBookings from './components/MyBookings/MyBookings'
+import Register from './components/Register/Register'
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
 						<Route path={PATHS.LOGIN} element={<Login />} />
 						<Route path={PATHS.LOGOUT} element={<Logout />} />
 						<Route path={PATHS.BOOK} element={<BookingPage />} />
+						<Route path={PATHS.MYBOOKINGS} element={<MyBookings />} />
+						<Route path={PATHS.REGISTER} element={<Register />} />
 					</Routes>
 				</>
 				<Footer />

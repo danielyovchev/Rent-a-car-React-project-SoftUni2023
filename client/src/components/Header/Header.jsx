@@ -7,9 +7,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/images/logo.png';
 import { useContext } from "react";
 import AuthContext from "../../contexts/AuthContext";
+import { NavDropdown } from "react-bootstrap";
 
 export default function Header() {
-	const {isAuthenticated,username} = useContext(AuthContext);
+	const { isAuthenticated, username } = useContext(AuthContext);
 	return (
 		<Navbar expand="lg" className="bg-body-tertiary">
 			<Container>
@@ -24,10 +25,16 @@ export default function Header() {
 					</Nav>
 				</Navbar.Collapse>
 				<Nav className={styles.logInButton}>
-					<label>{username}</label>
-					{!isAuthenticated ? 
-					(<Nav.Link as={Link} to={PATHS.LOGIN}>Log In</Nav.Link>) : 
-					(<Nav.Link as={Link} to={PATHS.LOGOUT}>Logout</Nav.Link>)
+					{!isAuthenticated ?
+						(<Nav.Link as={Link} to={PATHS.LOGIN}>Log In</Nav.Link>) :
+						(<>
+							<NavDropdown title="My Account">
+							<NavDropdown.Item>{username}</NavDropdown.Item>
+								<NavDropdown.Item as={Link} to={PATHS.MYBOOKINGS}>My Bookings</NavDropdown.Item>
+							</NavDropdown>
+							<Nav.Link as={Link} to={PATHS.LOGOUT}>Logout</Nav.Link>
+						</>
+						)
 					}
 				</Nav>
 			</Container>

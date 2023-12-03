@@ -18,6 +18,16 @@ export const getAllForPeriod = async (startDate) => {
     }
 }
 
+export const getAllForUser = async (userId) => {
+    const query = new URLSearchParams({
+        where: `_ownerId="${userId}"`,
+        load: `car=carId:cars`,
+        sortBy: `_createdOn`,
+    });
+
+    return await request.get(`${baseUrl}?${query} desc`)
+}
+
 export const createBooking = async (data) => {
     await request.post(baseUrl, data);
 }
