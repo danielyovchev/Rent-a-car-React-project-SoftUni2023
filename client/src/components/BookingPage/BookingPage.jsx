@@ -2,35 +2,38 @@ import { useLocation, useNavigate } from "react-router-dom";
 import CarCard from "../CarCard/CarCard";
 import CarRentalSearchForm from "../SearchForm/SearchForm";
 import getAllFreeCars from "../../services/carService";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PATHS } from "../../utils/routeConstants";
 import * as bookingService from "../../services/bookingService";
 import { toast } from "react-toastify";
 import { daysDiffCalculate } from "../../utils/dateUtil";
+import AuthContext from "../../contexts/AuthContext"
 
 export default function BookingPage() {
     const [cars, setCars] = useState([]);
     const [carId, setCarId] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
+    const {isAuthenticated} = useContext(AuthContext);
     const formData = location.state.formData;
-    console.log(formData);
 
     useEffect(() => {
         getAllFreeCars(formData.pickUpDate, formData.returnDate)
             .then(result => setCars(result))
             .catch(err => console.log(err));
     }, []);
-    console.log(cars);
 
     function handleCarSelect(carId) {
-        console.log(carId);
         setCarId(carId);
     }
 
     const handleBooking = async () => {
         try {
-            
+            if(!isAuthenticated){
+                toast.error('You must be logged in to book');
+                navigate(PATHS.LOGIN);
+                return;
+            }
             const days = daysDiffCalculate(formData.returnDate, formData.pickUpDate);
             let car = cars.find(car => car._id === carId);
             let totalPrice = days * car.price;
