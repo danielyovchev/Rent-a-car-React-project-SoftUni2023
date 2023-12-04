@@ -1,4 +1,4 @@
-import style from './CarCard.module.css'
+import style from './CarCard.module.css';
 
 export default function CarCard({ car, onSelect }) {
     return (

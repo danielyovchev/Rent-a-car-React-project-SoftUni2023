@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Carousel, Card } from 'react-bootstrap';
 import styles from './CarCarousel.module.css';
-import * as carService from '../../services/carService'
+import * as carService from '../../services/carService';
 import CarCarouselCard from './CarCarouselCard';
 
 export default function CarCarousel() {
