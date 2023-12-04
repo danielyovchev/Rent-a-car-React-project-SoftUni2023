@@ -15,6 +15,7 @@ import BookingPage from './components/BookingPage/BookingPage'
 import MyBookings from './components/MyBookings/MyBookings'
 import Register from './components/Register/Register'
 import { ToastContainer } from 'react-toastify'
+import AuthGuard from './components/Guards/AuthGuard'
 
 
 function App() {
@@ -30,10 +31,13 @@ function App() {
 						<Route path={PATHS.CARS} element={<Cars />} />
 						<Route path={PATHS.CONTACTS} element={<Contacts />} />
 						<Route path={PATHS.LOGIN} element={<Login />} />
-						<Route path={PATHS.LOGOUT} element={<Logout />} />
 						<Route path={PATHS.BOOK} element={<BookingPage />} />
-						<Route path={PATHS.MYBOOKINGS} element={<MyBookings />} />
 						<Route path={PATHS.REGISTER} element={<Register />} />
+						
+						<Route element={<AuthGuard />}>
+							<Route path={PATHS.MYBOOKINGS} element={<MyBookings />} />
+							<Route path={PATHS.LOGOUT} element={<Logout />} />
+						</Route>
 					</Routes>
 				</>
 				<Footer />

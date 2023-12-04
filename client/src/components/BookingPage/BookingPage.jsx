@@ -30,6 +30,7 @@ export default function BookingPage() {
 
     const handleBooking = async () => {
         try {
+            
             const days = daysDiffCalculate(formData.returnDate, formData.pickUpDate);
             let car = cars.find(car => car._id === carId);
             let totalPrice = days * car.price;

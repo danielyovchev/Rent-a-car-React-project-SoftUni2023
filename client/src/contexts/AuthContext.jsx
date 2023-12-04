@@ -29,13 +29,21 @@ export const AuthProvider = ({
     };
 
     const registerSubmitHandler = async (values) => {
-        const result = await authService.register(values.email, values.password);
+        try {
+            const result = await authService.register(values.email, values.password);
 
-        setAuth(result);
+            setAuth(result);
 
-        localStorage.setItem('accessToken', result.accessToken);
+            localStorage.setItem('accessToken', result.accessToken);
 
-        navigate(PATHS.HOME);
+            navigate(-2);
+        } catch (error) {
+            toast.error(error.message, {
+                position: "top-center",
+                autoClose: 3000,
+            })
+        }
+
     };
 
     const logoutHandler = () => {
