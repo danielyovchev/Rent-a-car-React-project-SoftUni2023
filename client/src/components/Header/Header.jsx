@@ -10,7 +10,7 @@ import AuthContext from "../../contexts/AuthContext";
 import { NavDropdown } from "react-bootstrap";
 
 export default function Header() {
-	const { isAuthenticated, username } = useContext(AuthContext);
+	const { isAuthenticated, username, isAdmin } = useContext(AuthContext);
 	return (
 		<Navbar expand="lg" className="bg-body-tertiary">
 			<Container>
@@ -25,6 +25,10 @@ export default function Header() {
 					</Nav>
 				</Navbar.Collapse>
 				<Nav className={styles.logInButton}>
+					{isAdmin ? 
+					(<Nav.Link as={Link} to={PATHS.ADMINCAR}>Admin Panel</Nav.Link>):
+					null
+				}
 					{!isAuthenticated ?
 						(<Nav.Link as={Link} to={PATHS.LOGIN}>Log In</Nav.Link>) :
 						(<>

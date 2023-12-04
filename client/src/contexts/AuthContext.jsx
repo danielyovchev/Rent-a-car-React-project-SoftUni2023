@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 
 import * as authService from '../services/authService';
 import usePersistedState from "../hooks/usePersistedState";
-import { PATHS } from '../utils/routeConstants';
 
 const AuthContext = createContext();
 
@@ -19,6 +18,7 @@ export const AuthProvider = ({
             const result = await authService.login(values.email, values.password);
             setAuth(result);
             localStorage.setItem('accessToken', result.accessToken);
+            localStorage.setItem('isAdmin', result.isAdmin);
             navigate(-1);
         } catch (error) {
             toast.error(error.message, {
@@ -49,6 +49,7 @@ export const AuthProvider = ({
     const logoutHandler = () => {
         setAuth({});
         localStorage.removeItem('accessToken');
+        localStorage.removeItem('isAdmin');
     };
 
     const values = {
@@ -59,6 +60,7 @@ export const AuthProvider = ({
         email: auth.email,
         userId: auth._id,
         isAuthenticated: !!auth.accessToken,
+        isAdmin: auth.isAdmin
     };
 
     return (

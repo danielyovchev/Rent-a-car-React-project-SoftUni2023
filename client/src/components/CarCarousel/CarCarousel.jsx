@@ -17,7 +17,6 @@ export default function CarCarousel() {
             .then(result => setCars(result))
             .catch(err => console.log(err))
     }, []);
-    console.log(cars);
     return (
         <Carousel className={styles.carousel} activeIndex={index} onSelect={handleSelect}>
             {cars.map(car =>

@@ -7,7 +7,8 @@ export const PATHS = {
     ABOUT: '/about',
     CONTACTS: '/contacts',
     LOGOUT: '/logout',
-    MYBOOKINGS: '/myBookings'
+    MYBOOKINGS: '/myBookings',
+    ADMINCAR: '/adminCar',
 };
 
 export const API_BASE_URL = "http://localhost:3030/data";
