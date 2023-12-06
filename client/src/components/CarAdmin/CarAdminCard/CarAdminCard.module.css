@@ -1,0 +1,79 @@
+.carCard {
+    display: flex; /* Use flexbox to align items horizontally */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 10px;
+    width: 80%; /* Set to full width */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Optional: adds shadow for depth */
+    align-items: center; /* Align items vertically */
+}
+
+.carImage {
+    flex-basis: 30%; /* Adjust the width of the image container */
+    padding-right: 20px; /* Add some space between the image and the details */
+}
+
+.carImage img {
+    width: 100%;
+    height: auto;
+}
+
+.carDetails {
+    flex: 1; /* Take up the remaining space */
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Stack details vertically */
+    justify-content: space-between; /* Distribute space around items */
+}
+
+.carDetails h2 {
+    margin-bottom: 10px;
+}
+
+.carInfo {
+    display: flex;
+    justify-content: space-between; /* Space items out */
+    align-items: center; /* Align items vertically */
+    font-size: 0.9em; /* Smaller text for car info */
+}
+
+.carInfo p {
+    margin: 5px 0;
+}
+
+.carPricing {
+    display: flex;
+    justify-content: space-between; /* Space items out */
+    align-items: center; /* Align items vertically */
+}
+
+.carPricing p {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.carPricing .perDay {
+    text-decoration: line-through; /* Optional: if you want to strike-through the per day price */
+    color: #666; /* Optional: grey out the per day price */
+}
+
+.carPricing .total {
+    color: green; /* Highlight the total price */
+    font-size: 1.2em; /* Make total price larger */
+}
+
+button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center; /* Align button independently */
+    margin-left: auto; /* Push button to the right */
+}
+
+button:hover {
+    background-color: darkgreen;
+}

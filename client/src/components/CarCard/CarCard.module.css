@@ -1,17 +1,17 @@
 .carCard {
-    display: flex; /* Use flexbox to align items horizontally */
+    display: flex; 
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 20px;
     margin: 10px;
-    width: 80%; /* Set to full width */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Optional: adds shadow for depth */
-    align-items: center; /* Align items vertically */
+    width: 80%; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+    align-items: center; 
 }
 
 .carImage {
-    flex-basis: 30%; /* Adjust the width of the image container */
-    padding-right: 20px; /* Add some space between the image and the details */
+    flex-basis: 30%; 
+    padding-right: 20px; 
 }
 
 .carImage img {
@@ -20,11 +20,11 @@
 }
 
 .carDetails {
-    flex: 1; /* Take up the remaining space */
+    flex: 1;
     padding: 10px;
     display: flex;
-    flex-direction: column; /* Stack details vertically */
-    justify-content: space-between; /* Distribute space around items */
+    flex-direction: column; 
+    justify-content: space-between; 
 }
 
 .carDetails h2 {
@@ -33,9 +33,9 @@
 
 .carInfo {
     display: flex;
-    justify-content: space-between; /* Space items out */
-    align-items: center; /* Align items vertically */
-    font-size: 0.9em; /* Smaller text for car info */
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 0.9em;
 }
 
 .carInfo p {
@@ -44,8 +44,8 @@
 
 .carPricing {
     display: flex;
-    justify-content: space-between; /* Space items out */
-    align-items: center; /* Align items vertically */
+    justify-content: space-between;
+    align-items: center; 
 }
 
 .carPricing p {
@@ -54,13 +54,13 @@
 }
 
 .carPricing .perDay {
-    text-decoration: line-through; /* Optional: if you want to strike-through the per day price */
-    color: #666; /* Optional: grey out the per day price */
+    text-decoration: line-through; 
+    color: #666; 
 }
 
 .carPricing .total {
-    color: green; /* Highlight the total price */
-    font-size: 1.2em; /* Make total price larger */
+    color: green; 
+    font-size: 1.2em;
 }
 
 button {
@@ -70,8 +70,8 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    align-self: center; /* Align button independently */
-    margin-left: auto; /* Push button to the right */
+    align-self: center; 
+    margin-left: auto; 
 }
 
 button:hover {
