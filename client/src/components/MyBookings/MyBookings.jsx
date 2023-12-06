@@ -3,6 +3,7 @@ import AuthContext from "../../contexts/AuthContext"
 import * as bookingService from "../../services/bookingService"
 import BookingCard from "./BookingCard";
 import { toast } from "react-toastify";
+import styles from "./MyBookings.module.css";
 
 export default function MyBookings() {
     const { userId } = useContext(AuthContext);
@@ -28,9 +29,11 @@ export default function MyBookings() {
 
     return (
         <>
-            {bookings.map(booking => (
+            {bookings.length === 0 ? 
+            (<p className={styles.noBookings}>You have no bookings made.</p>) : 
+            (bookings.map(booking => (
                 <BookingCard key={booking._id} booking={booking} onCancel={cancelBooking} />
-            ))}
+            )))}
         </>
     );
 }
