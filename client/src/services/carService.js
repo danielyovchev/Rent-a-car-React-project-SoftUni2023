@@ -41,7 +41,7 @@ export const createCar = async (carData) => {
     return result;
 }
 
-export const editCar = async (carId, carData) => {
+export const updateCar = async (carId, carData) => {
     const result = await request.put(`${baseUrl}/${carId}`, carData);
     return result;
 }

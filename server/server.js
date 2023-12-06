@@ -1352,21 +1352,21 @@
                 bags: 2,
                 year: "2023",
                 type: "hatchback",
-                description: "Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together to save the universe.",
+                description: "Explore the city with ease in our compact and stylish hatchback. Perfect for urban adventures and efficient travels, this car offers ample space with its versatile and roomy interior, ideal for both passengers and luggage. Its excellent fuel economy makes it a cost-effective choice for your journeys. Equipped with modern amenities and a smooth driving experience, it's the perfect companion for both short trips and longer explorations. Rent now for a convenient and enjoyable driving experience.",
                 imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/420px-2018_Ford_Focus_ST-Line_X_1.0.jpg",
                 price: 120.50
             },
             "9bf31c7f-0623-4c4a-ae95-c5ed837b07az": {
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _id: "9bf31c7f-0623-4c4a-ae95-c5ed837b07ac",
-                model: "Ford Mondeo",
+                model: "BMW 5-series",
                 transmission: "automatic",
                 capacity: 5,
                 bags: 3,
                 year: "2023",
                 type: "sedan",
-                description: "Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together to save the universe.",
-                imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/420px-2018_Ford_Focus_ST-Line_X_1.0.jpg",
+                description: "Experience the perfect blend of comfort and elegance with our premium sedan. Ideal for both business and leisure, this car boasts a spacious and luxurious interior, ensuring a comfortable ride for all passengers. With advanced safety features and a smooth, quiet ride, it's designed for those who prioritize comfort and style. The sedan's powerful engine and responsive handling make it a pleasure to drive on both city streets and open highways. Book now for a sophisticated and reliable travel experience.",
+                imgUrl: "https://www.motortrend.com/uploads/2023/05/2024-bmw-5-series-17.jpeg?fit=around%7C875:492",
                 price: 220.50
             }
         },
