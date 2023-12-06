@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import * as carService from '../../services/carService';
 import CarAdminCard from "./CarAdminCard/CarAdminCard";
+import { toast } from 'react-toastify';
 
 export default function CarAdmin() {
     const [cars, setCars] = useState([]);
@@ -21,7 +22,19 @@ export default function CarAdmin() {
     }
 
     const deleteHandler = (carId) => {
-        setCarId(carId);
+        //setCarId(carId);
+        try {
+            carService.removeCar(carId);
+            toast.success(`Car with id ${carId} was deleted!`, {
+                position: "top-center",
+                autoClose: 2000,
+            });
+        } catch (error) {
+            toast.success(`Car with id ${carId} was not deleted!`, {
+                position: "top-center",
+                autoClose: 3000,
+            });
+        }
     }
 
     return (

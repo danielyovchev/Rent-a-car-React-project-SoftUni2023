@@ -30,3 +30,20 @@ export default async function getAllFreeCars(startDate, endDate) {
         return [];
     }
 }
+
+export const getById = async (id) => {
+    const result = await request.get(`${baseUrl}/${id}`);
+    return result;
+}
+
+export const createCar = async (carData) => {
+    const result = await request.post(baseUrl, carData);
+    return result;
+}
+
+export const editCar = async (carId, carData) => {
+    const result = await request.put(`${baseUrl}/${carId}`, carData);
+    return result;
+}
+
+export const removeCar = async (id) => request.remove(`${baseUrl}/${id}`);
