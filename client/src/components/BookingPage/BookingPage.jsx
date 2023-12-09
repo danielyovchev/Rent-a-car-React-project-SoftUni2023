@@ -36,7 +36,7 @@ export default function BookingPage() {
                 navigate(PATHS.LOGIN);
                 return;
             }
-            const days = daysDiffCalculate(formData.returnDate, formData.pickUpDate);
+            const days = daysDiffCalculate(`${formData.returnDate}T${formData.returnTime}`, `${formData.pickUpDate}T${formData.pickUpTime}`);
             let car = cars.find(car => car._id === carId);
             let totalPrice = days * car.price;
             const bookingData = {
