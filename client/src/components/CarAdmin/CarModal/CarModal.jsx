@@ -3,15 +3,15 @@ import { Modal, Button, Form } from 'react-bootstrap';
 
 export default function CarModal({ show, handleClose, car, onSave }) {
 
-    const [model, setModel] = useState(car.model);
-    const [transmission, setTransmission] = useState(car.transmission);
-    const [capacity, setCapacity] = useState(car.capacity);
-    const [bags, setBags] = useState(car.bags);
-    const [year, setYear] = useState(car.year);
-    const [type, setType] = useState(car.type);
-    const [description, setDescription] = useState(car.description);
-    const [imgUrl, setImgUrl] = useState(car.imgUrl);
-    const [price, setPrice] = useState(car.price);
+    const [model, setModel] = useState(car?.model || '');
+    const [transmission, setTransmission] = useState(car?.transmission || '');
+    const [capacity, setCapacity] = useState(car?.capacity || '');
+    const [bags, setBags] = useState(car?.bags || '');
+    const [year, setYear] = useState(car?.year || '');
+    const [type, setType] = useState(car?.type || '');
+    const [description, setDescription] = useState(car?.description || '');
+    const [imgUrl, setImgUrl] = useState(car?.imgUrl || '');
+    const [price, setPrice] = useState(car?.price || '');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -32,7 +32,7 @@ export default function CarModal({ show, handleClose, car, onSave }) {
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Edit Car</Modal.Title>
+                <Modal.Title>{car? 'Edit Car' : 'Add Car'}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
@@ -96,19 +96,18 @@ export default function CarModal({ show, handleClose, car, onSave }) {
                         <Form.Label>ImgUrl</Form.Label>
                         <Form.Control
                             type="text"
-                            value={capacity}
+                            value={imgUrl}
                             onChange={(e) => setImgUrl(e.target.value)}
                         />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Price</Form.Label>
                         <Form.Control
-                            type="text"
+                            type="number"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />
                     </Form.Group>
-                    {/* Repeat for other fields */}
                     <Button variant="primary" type="submit">
                         Save Changes
                     </Button>

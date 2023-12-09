@@ -25,7 +25,8 @@ export default function CarAdmin() {
     }
 
     const saveCarHandler = (updatedCar) => {
-        carService.updateCar(currentCar._id, updatedCar)
+        if(currentCar._id){
+            carService.updateCar(currentCar._id, updatedCar)
             .then(() => {
                 setCars(prevCars => prevCars.map(car => car._id === currentCar._id ? updatedCar : car));
                 setShowModal(false);
@@ -35,6 +36,17 @@ export default function CarAdmin() {
                 toast.error("Update failed!");
                 console.error(err);
             });
+        } else {
+            carService.createCar(updatedCar)
+            .then((newCar) => {
+                setCars(prevCars => [...prevCars, newCar])
+                toast.success("Car created successfully!");
+            })
+            .catch(err => {
+                toast.error("Creation failed!");
+                console.error(err);});
+        }
+        
         setShowModal(false);
     };
 
@@ -64,7 +76,18 @@ export default function CarAdmin() {
     };
 
     const createCarHandler = () => {
-
+        setCurrentCar({
+            model: '',
+            transmission: '',
+            capacity: '',
+            bags: '',
+            year: '',
+            type: '',
+            description: '',
+            imgUrl: '',
+            price: ''
+        });
+        setShowModal(true);
     }
 
     return (
@@ -77,7 +100,7 @@ export default function CarAdmin() {
             </div>
             
             {showModal && currentCar && (
-                <CarModal key={car._id}
+                <CarModal key={currentCar?._id || Date.now()}
                     car={currentCar}
                     show={showModal}
                     handleClose={closeModalHandler}
