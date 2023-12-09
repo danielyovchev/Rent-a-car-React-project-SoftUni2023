@@ -1,4 +1,5 @@
 import style from './CarCard.module.css';
+import { FaCar, FaCogs, FaUsers, FaSuitcase } from 'react-icons/fa';
 
 export default function CarCard({ car, onSelect }) {
     return (
@@ -9,10 +10,10 @@ export default function CarCard({ car, onSelect }) {
             <div className={style.carDetails}>
                 <h2>{car.model}</h2>
                 <div className={style.carInfo}>
-                    <p>{car.type}</p>
-                    <p>{car.transmission}</p>
-                    <p>{car.capacity} People</p>
-                    <p>{car.bags} Bags</p>
+                    <p><FaCar /> {car.type}</p>
+                    <p><FaCogs /> {car.transmission}</p>
+                    <p><FaUsers /> {car.capacity} People</p>
+                    <p><FaSuitcase /> {car.bags} Bags</p>
                 </div>
                 <div className={style.carPricing}>
                     <p>${car.price.toFixed(2)} Per Day</p>

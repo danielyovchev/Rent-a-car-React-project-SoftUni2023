@@ -55,17 +55,17 @@ export default function CarModal({ show, handleClose, car, onSave }) {
                     <Form.Group>
                         <Form.Label>Capacity</Form.Label>
                         <Form.Control
-                            type="text"
+                            type="number"
                             value={capacity}
-                            onChange={(e) => setCapacity(e.target.value)}
+                            onChange={(e) => setCapacity(Number(e.target.value))}
                         />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Bags</Form.Label>
                         <Form.Control
-                            type="text"
+                            type="number"
                             value={bags}
-                            onChange={(e) => setBags(e.target.value)}
+                            onChange={(e) => setBags(Number(e.target.value))}
                         />
                     </Form.Group>
                     <Form.Group>
@@ -105,7 +105,7 @@ export default function CarModal({ show, handleClose, car, onSave }) {
                         <Form.Control
                             type="number"
                             value={price}
-                            onChange={(e) => setPrice(e.target.value)}
+                            onChange={(e) => setPrice(Number(e.target.value))}
                         />
                     </Form.Group>
                     <Button variant="primary" type="submit">
