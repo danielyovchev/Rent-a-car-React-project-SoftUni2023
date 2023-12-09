@@ -1,18 +1,25 @@
 import { useEffect, useState } from "react";
-import { getAll } from "../../services/carService";
+import * as carService from '../../services/carService';
 import CarCard from "../CarCard/CarCard";
+import styles from "./Cars.module.css"
 
 export default function Cars() {
     const [cars, setCars] = useState([]);
     useEffect(() => {
-        getAll()
+        carService.getAll()
             .then(result => setCars(result))
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
     }, []);
     return (
-        <div className="carsMain">
-            <h2>Our fleet</h2>
-            {/* {cars.map(car => <CarCard key={car._id} />)} */}
-        </div>
+        <>
+            <div className={styles.carsMain}>
+                <h2>Our fleet</h2>
+            </div>
+            <div>
+                {cars.map(car => <CarCard key={car._id} car={car} onSelect={null}/>)}
+            </div>
+        </>
+
+
     );
 }

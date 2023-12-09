@@ -95,7 +95,7 @@ export default function CarAdmin() {
             <div className={styles.container}>
                 <button className={styles.createCar} onClick={createCarHandler}>Add new car</button>
             </div>
-            <div className="container">
+            <div>
             {cars.map(car => <CarAdminCard key={car._id} car={car} onEdit={editHandler} onDelete={deleteHandler} />)}
             </div>
             

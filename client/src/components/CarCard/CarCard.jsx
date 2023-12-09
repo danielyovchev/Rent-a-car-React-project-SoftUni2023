@@ -17,7 +17,7 @@ export default function CarCard({ car, onSelect }) {
                 <div className={style.carPricing}>
                     <p>${car.price.toFixed(2)} Per Day</p>
                 </div>
-                <button onClick={() => onSelect(car._id)}>Book now</button>
+                {onSelect === null ? '' : <button onClick={() => onSelect(car._id)}>Book now</button>}
             </div>
         </div>
     );
