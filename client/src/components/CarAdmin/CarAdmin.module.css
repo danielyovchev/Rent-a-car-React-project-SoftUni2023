@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createCar {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

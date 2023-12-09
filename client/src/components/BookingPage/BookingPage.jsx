@@ -7,7 +7,9 @@ import { PATHS } from "../../utils/routeConstants";
 import * as bookingService from "../../services/bookingService";
 import { toast } from "react-toastify";
 import { daysDiffCalculate } from "../../utils/dateUtil";
-import AuthContext from "../../contexts/AuthContext"
+import AuthContext from "../../contexts/AuthContext";
+import styles from "./BookingPage.module.css";
+
 
 export default function BookingPage() {
     const [cars, setCars] = useState([]);
@@ -66,7 +68,10 @@ export default function BookingPage() {
     return (
         <>
             <CarRentalSearchForm />
-            {cars.map(car => <CarCard key={car._id} car={car} onSelect={handleCarSelect} />)}
+            
+            {cars.length === 0 ? 
+            (<p className={styles.noCars}>No cars were found for the selected period</p>) : 
+            (cars.map(car => <CarCard className={styles.card} key={car._id} car={car} onSelect={handleCarSelect} />))}
         </>
     );
 }

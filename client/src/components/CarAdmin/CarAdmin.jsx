@@ -3,6 +3,7 @@ import * as carService from '../../services/carService';
 import CarAdminCard from "./CarAdminCard/CarAdminCard";
 import { toast } from 'react-toastify';
 import CarModal from "./CarModal/CarModal";
+import styles from "./CarAdmin.module.css";
 
 export default function CarAdmin() {
     const [cars, setCars] = useState([]);
@@ -41,30 +42,40 @@ export default function CarAdmin() {
     const deleteHandler = (carId) => {
         try {
             carService.removeCar(carId)
-            .then(() => {
-                setCars(prevCars => prevCars.filter(car => car._id !== carId));
-                toast.success(`Car with id ${carId} was deleted!`, {
-                    position: "top-center",
-                    autoClose: 2000,
+                .then(() => {
+                    setCars(prevCars => prevCars.filter(car => car._id !== carId));
+                    toast.success(`Car with id ${carId} was deleted!`, {
+                        position: "top-center",
+                        autoClose: 2000,
+                    });
                 });
-            });
-            
+
         } catch (error) {
             toast.success(`Car with id ${carId} was not deleted!`, {
                 position: "top-center",
                 autoClose: 3000,
             });
         }
-        
+
     }
 
     const closeModalHandler = () => {
         setShowModal(false);
     };
 
+    const createCarHandler = () => {
+
+    }
+
     return (
         <>
+            <div className={styles.container}>
+                <button className={styles.createCar} onClick={createCarHandler}>Add new car</button>
+            </div>
+            <div className="container">
             {cars.map(car => <CarAdminCard key={car._id} car={car} onEdit={editHandler} onDelete={deleteHandler} />)}
+            </div>
+            
             {showModal && currentCar && (
                 <CarModal key={car._id}
                     car={currentCar}

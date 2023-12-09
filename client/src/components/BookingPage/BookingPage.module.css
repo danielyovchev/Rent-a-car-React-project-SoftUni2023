@@ -1,0 +1,10 @@
+.noCars {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #555;
+}
+
+.card {
+    align-items: center;
+    justify-content: center;
+}
