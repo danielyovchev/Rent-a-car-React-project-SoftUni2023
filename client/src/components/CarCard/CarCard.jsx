@@ -15,6 +15,7 @@ export default function CarCard({ car, onSelect }) {
                     <p><FaUsers /> {car.capacity} People</p>
                     <p><FaSuitcase /> {car.bags} Bags</p>
                 </div>
+                <p>{car.description}</p>
                 <div className={style.carPricing}>
                     <p>${car.price.toFixed(2)} Per Day</p>
                 </div>
