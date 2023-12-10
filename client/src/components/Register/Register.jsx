@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import AuthContext from '../../contexts/AuthContext';
+import styles from './Register.module.css';
 
 export default function Register() {
     const [email, setEmail] = useState('');
@@ -15,7 +16,8 @@ export default function Register() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className={styles.formContainer}>
+            <form className={styles.formC} onSubmit={handleSubmit}>
             <h2>Register</h2>
             <div>
                 <label>Email:</label>
@@ -46,5 +48,7 @@ export default function Register() {
             </div>
             <button type="submit">Register</button>
         </form>
+        </div>
+        
     );
 }
