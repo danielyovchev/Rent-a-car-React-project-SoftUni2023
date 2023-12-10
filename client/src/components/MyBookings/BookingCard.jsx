@@ -23,7 +23,6 @@ export default function BookingCard({ booking, onCancel }) {
                 <div className="info-column">
                     <p>Price: {booking.totalPrice}</p>
                 </div>
-                <button>Review</button>
                 <button onClick={handleCancelClick}>Cancel</button>
             </div>
         </div>
